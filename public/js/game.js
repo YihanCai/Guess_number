@@ -125,8 +125,12 @@ function renderHistory() {
   state.history.forEach((entry, index) => {
     const row = document.createElement('tr');
     row.className = `history-row history-${entry.result}`;
-    // Staggered animation: each row fades in 0.05s after the previous
-    row.style.animationDelay = `${index * 0.05}s`;
+    // Only the newest entry (last in array, rendered first) gets animation delay != 0
+    if (index < state.history.length - 1) {
+      row.style.animationDelay = '0s';
+    } else {
+      row.style.animationDelay = '0.1s';
+    }
 
     const numCell = document.createElement('td');
     numCell.textContent = entry.guess;
@@ -234,6 +238,7 @@ function useHint() {
 }
 
 function showGameOverModal() {
+  els.modal.classList.add('visible');
   els.modal.style.display = 'flex';
 
   if (state.status === 'won') {
