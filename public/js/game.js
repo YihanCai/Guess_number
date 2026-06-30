@@ -62,6 +62,28 @@ function initGame() {
   renderAll();
 }
 
+/**
+ * Update the input-error class based on validity.
+ */
+function setInputError(hasError) {
+  if (hasError) {
+    els.guessInput.classList.add('input-error');
+  } else {
+    els.guessInput.classList.remove('input-error');
+  }
+}
+
+/**
+ * Update low-guesses pulse on remaining count.
+ */
+function updateRemainingClass() {
+  if (state.remainingGuesses <= 2 && state.status === 'playing') {
+    els.guessRemaining.classList.add('low');
+  } else {
+    els.guessRemaining.classList.remove('low');
+  }
+}
+
 // --- Persistence ---
 function saveState() {
   try {
@@ -94,6 +116,7 @@ function renderAll() {
   els.guessInput.disabled = state.isGameOver;
   els.submitBtn.disabled = state.isGameOver;
 
+  updateRemainingClass();
   renderHistory();
 }
 
@@ -102,6 +125,8 @@ function renderHistory() {
   state.history.forEach((entry, index) => {
     const row = document.createElement('tr');
     row.className = `history-row history-${entry.result}`;
+    // Staggered animation: each row fades in 0.05s after the previous
+    row.style.animationDelay = `${index * 0.05}s`;
 
     const numCell = document.createElement('td');
     numCell.textContent = entry.guess;
@@ -128,23 +153,27 @@ function submitGuess() {
 
   const raw = els.guessInput.value.trim();
   if (raw === '') {
+    setInputError(true);
     showFeedback('请输入一个数字', 'error');
     return;
   }
 
   const guess = Number(raw);
   if (!Number.isInteger(guess)) {
+    setInputError(true);
     showFeedback('请输入有效的整数', 'error');
     return;
   }
 
   if (guess < state.hintClampMin || guess > state.hintClampMax) {
+    setInputError(true);
     showFeedback(`请输入 ${state.hintClampMin} ~ ${state.hintClampMax} 之间的数字`, 'error');
     return;
   }
 
   // Valid guess
   els.guessInput.value = '';
+  setInputError(false);
   state.remainingGuesses--;
 
   let result;
@@ -263,5 +292,8 @@ document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('hintBtn').addEventListener('click', useHint);
   document.getElementById('guessInput').addEventListener('keydown', (e) => {
     if (e.key === 'Enter') submitGuess();
+  });
+  document.getElementById('guessInput').addEventListener('focus', () => {
+    setInputError(false);
   });
 });

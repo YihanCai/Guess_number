@@ -554,11 +554,174 @@ body.game-page {
   .modal-card {
     padding: 1.5rem;
   }
+
+  .scoreboard-table thead th,
+  .scoreboard-table tbody td {
+    padding: 0.5rem 0.3rem;
+    font-size: 0.8rem;
+  }
+
+  .cell-date {
+    font-size: 0.75rem;
+  }
 }
 
 /* ============================================
-   Scoreboard Page Styles
+   Animations & Polish
    ============================================ */
+
+/* --- Keyframes --- */
+@keyframes fadeSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9) translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.08);
+  }
+}
+
+@keyframes slideInRow {
+  from {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* --- Feedback Animation --- */
+.feedback {
+  animation: fadeSlideIn 0.3s ease-out;
+}
+
+/* --- Input Polish --- */
+.guess-input:focus {
+  border-color: #81c784;
+  box-shadow: 0 0 0 3px rgba(129, 199, 132, 0.15);
+}
+
+.guess-input.input-error {
+  border-color: #ef5350;
+  box-shadow: 0 0 0 3px rgba(239, 83, 80, 0.15);
+  animation: pulse 0.5s ease-in-out;
+}
+
+/* --- Button Polish --- */
+.btn:active:not(:disabled) {
+  transform: scale(0.96);
+}
+
+.btn-primary:active:not(:disabled) {
+  background: #388e3c;
+}
+
+.btn-secondary:active:not(:disabled) {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.btn-danger:active:not(:disabled) {
+  background: rgba(244, 67, 54, 0.35);
+}
+
+/* --- Remaining Count Pulse (low) --- */
+#guessRemaining.low {
+  color: #ef5350;
+  animation: pulse 1.2s ease-in-out infinite;
+  font-weight: 700;
+}
+
+/* --- History Row Animation --- */
+.history-row {
+  animation: slideInRow 0.25s ease-out;
+  animation-fill-mode: both;
+}
+
+/* --- Row stagger delay is set via JS --- */
+
+/* --- Modal Animation --- */
+.modal-overlay.visible .modal-card {
+  animation: scaleIn 0.35s ease-out;
+}
+
+.modal-overlay {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.modal-overlay.visible {
+  display: flex;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* --- Card Hover Polish --- */
+.card {
+  will-change: transform, box-shadow;
+}
+
+.card:active {
+  transform: translateY(-3px) scale(0.98);
+}
+
+/* --- Nav Link Polish --- */
+.back-link {
+  position: relative;
+}
+
+.back-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: #81c784;
+  transition: width 0.25s ease;
+}
+
+.back-link:hover::after {
+  width: 100%;
+}
+
+/* --- Smooth Transition On Remaining Display --- */
+#guessRemaining {
+  transition: color 0.3s ease;
+}
+
+/* --- Feedback Entrance Enhancement --- */
+.feedback.info, .feedback.error, .feedback.success, .feedback.hint {
+  animation: fadeSlideIn 0.3s ease-out;
+}
+
+/* --- History Empty State --- */
+.history-empty {
+  transition: opacity 0.3s ease;
+}
 
 .scoreboard-link {
   display: inline-block;
