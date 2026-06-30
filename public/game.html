@@ -3,15 +3,56 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>猜数字游戏 - 游戏中</title>
+  <title>猜数字 - 游戏中</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
-  <div class="container">
-    <h1 style="margin-top: 3rem">游戏进行中...</h1>
-    <p>(Step 3 将实现完整的游戏界面)</p>
-    <br>
-    <a href="index.html" style="color: #81c784; text-decoration: underline;">← 返回首页</a>
+<body class="game-page">
+  <!-- Navigation -->
+  <nav class="game-nav">
+    <a href="index.html" class="back-link">&larr; 返回首页</a>
+    <span id="difficultyBadge" class="badge badge-normal">普通</span>
+  </nav>
+
+  <div class="game-container">
+    <!-- Info bar -->
+    <div class="info-bar">
+      <span id="rangeInfo">范围: 1 ~ 100</span>
+      <span id="guessRemaining">剩余次数: 7 / 7</span>
+    </div>
+
+    <!-- Input area -->
+    <div class="input-area">
+      <input type="number" id="guessInput" class="guess-input" placeholder="输入你猜的数字..." autofocus>
+      <button id="submitBtn" class="btn btn-primary">猜</button>
+      <button id="hintBtn" class="btn btn-secondary">&#x1F4A1; 提示</button>
+    </div>
+
+    <!-- Feedback -->
+    <div id="feedback" class="feedback" style="display: none;"></div>
+
+    <!-- History -->
+    <div class="history-section">
+      <h3 class="history-title">猜测记录</h3>
+      <table class="history-table">
+        <thead>
+          <tr><th>数字</th><th>结果</th></tr>
+        </thead>
+        <tbody id="historyBody"></tbody>
+      </table>
+      <p id="historyEmpty" class="history-empty">还没有猜测记录，开始吧!</p>
+    </div>
   </div>
+
+  <!-- Game over modal -->
+  <div id="gameOverModal" class="modal-overlay">
+    <div class="modal-card">
+      <h2 id="modalTitle"></h2>
+      <div id="modalBody" class="modal-body"></div>
+      <button id="modalBtn" class="btn btn-primary">再来一局</button>
+    </div>
+  </div>
+
+  <script src="js/utils.js"></script>
+  <script src="js/game.js"></script>
 </body>
 </html>
