@@ -4,9 +4,65 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>猜数字游戏</title>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <h1>猜数字游戏</h1>
-  <p>项目初始化 — 后续步骤将完善此页面</p>
+  <div class="container">
+    <header class="header">
+      <h1 class="title">🎯 猜数字</h1>
+      <p class="subtitle">系统随机生成一个目标数字，在有限的次数内猜中它！</p>
+    </header>
+
+    <section class="difficulty-section">
+      <h2 class="section-title">选择难度</h2>
+      <div class="card-grid">
+        <a href="game.html?difficulty=easy" class="card card-easy">
+          <div class="card-badge">简单</div>
+          <div class="card-content">
+            <span class="card-icon">🟢</span>
+            <h3 class="card-title">简单模式</h3>
+            <ul class="card-info">
+              <li>数字范围：<strong>1 ~ 50</strong></li>
+              <li>猜测次数：<strong>10 次</strong></li>
+            </ul>
+            <p class="card-desc">适合新手，轻松上手</p>
+          </div>
+          <span class="card-arrow">→</span>
+        </a>
+
+        <a href="game.html?difficulty=normal" class="card card-normal">
+          <div class="card-badge">普通</div>
+          <div class="card-content">
+            <span class="card-icon">🟡</span>
+            <h3 class="card-title">普通模式</h3>
+            <ul class="card-info">
+              <li>数字范围：<strong>1 ~ 100</strong></li>
+              <li>猜测次数：<strong>7 次</strong></li>
+            </ul>
+            <p class="card-desc">标准难度，推荐选择</p>
+          </div>
+          <span class="card-arrow">→</span>
+        </a>
+
+        <a href="game.html?difficulty=hard" class="card card-hard">
+          <div class="card-badge">困难</div>
+          <div class="card-content">
+            <span class="card-icon">🔴</span>
+            <h3 class="card-title">困难模式</h3>
+            <ul class="card-info">
+              <li>数字范围：<strong>1 ~ 200</strong></li>
+              <li>猜测次数：<strong>5 次</strong></li>
+            </ul>
+            <p class="card-desc">挑战极限，考验推理</p>
+          </div>
+          <span class="card-arrow">→</span>
+        </a>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <p>Guess Number Game &mdash; Built with Node.js &amp; Express</p>
+    </footer>
+  </div>
 </body>
 </html>
