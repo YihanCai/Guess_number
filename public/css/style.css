@@ -555,3 +555,112 @@ body.game-page {
     padding: 1.5rem;
   }
 }
+
+/* ============================================
+   Scoreboard Page Styles
+   ============================================ */
+
+.scoreboard-link {
+  display: inline-block;
+  margin-top: 1.5rem;
+  padding: 0.6rem 1.5rem;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  color: #c0c0e0;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: all 0.2s;
+}
+
+.scoreboard-link:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+  color: #fff;
+}
+
+.badge-score {
+  background: rgba(255, 193, 7, 0.2);
+  color: #ffd54f;
+}
+
+.scoreboard-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+.scoreboard-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.btn-danger {
+  background: rgba(244, 67, 54, 0.15);
+  color: #ef9a9a;
+  border: 1px solid rgba(244, 67, 54, 0.25);
+  padding: 0.5rem 1rem;
+  font-size: 0.85rem;
+}
+
+.btn-danger:hover {
+  background: rgba(244, 67, 54, 0.25);
+}
+
+.scoreboard-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.scoreboard-table thead th {
+  font-size: 0.75rem;
+  color: #666688;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 0.6rem 0.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  text-align: left;
+}
+
+.scoreboard-table tbody td {
+  padding: 0.7rem 0.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  font-size: 0.9rem;
+}
+
+.cell-date {
+  color: #8888aa;
+  font-size: 0.85rem;
+  white-space: nowrap;
+}
+
+.cell-score {
+  color: #ffd54f;
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.badge-sm {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 10px;
+}
+
+.badge-easy {
+  background: rgba(76, 175, 80, 0.2);
+  color: #81c784;
+}
+
+.badge-normal {
+  background: rgba(255, 193, 7, 0.2);
+  color: #ffd54f;
+}
+
+.badge-hard {
+  background: rgba(244, 67, 54, 0.2);
+  color: #ef9a9a;
+}

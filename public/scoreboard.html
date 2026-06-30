@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>猜数字 - 战绩</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="game-page">
+  <nav class="game-nav">
+    <a href="index.html" class="back-link">&larr; 返回首页</a>
+    <span class="badge badge-score">&#x1F3C6; 战绩</span>
+  </nav>
+
+  <div class="game-container">
+    <div class="scoreboard-header">
+      <h2 class="scoreboard-title">历史战绩</h2>
+      <button id="clearBtn" class="btn btn-danger">清空记录</button>
+    </div>
+
+    <div id="scoreboardContent">
+      <table class="scoreboard-table">
+        <thead>
+          <tr>
+            <th>日期</th>
+            <th>难度</th>
+            <th>猜题次数</th>
+            <th>剩余</th>
+            <th>得分</th>
+          </tr>
+        </thead>
+        <tbody id="scoreboardBody"></tbody>
+      </table>
+      <p id="emptyState" class="history-empty">暂无战绩记录，去玩一局吧!</p>
+    </div>
+  </div>
+
+  <script src="js/scoreboard.js"></script>
+</body>
+</html>
