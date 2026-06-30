@@ -248,3 +248,310 @@ a {
     padding: 1.5rem 1rem;
   }
 }
+
+/* ============================================
+   Game Page Styles
+   ============================================ */
+
+/* Override body for game page (scrollable, top-aligned) */
+body.game-page {
+  display: block;
+  padding: 0;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+/* --- Navigation --- */
+.game-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.5rem;
+  background: rgba(0, 0, 0, 0.3);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.back-link {
+  color: #81c784;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.back-link:hover {
+  color: #a5d6a7;
+}
+
+.badge {
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 4px 14px;
+  border-radius: 20px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.badge-normal {
+  background: rgba(255, 193, 7, 0.2);
+  color: #ffd54f;
+}
+
+/* --- Game Container --- */
+.game-container {
+  max-width: 550px;
+  margin: 2rem auto;
+  padding: 0 1.5rem;
+}
+
+/* --- Info Bar --- */
+.info-bar {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.75rem 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  font-size: 0.9rem;
+  color: #b0b0d0;
+  margin-bottom: 1.5rem;
+}
+
+/* --- Input Area --- */
+.input-area {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.guess-input {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+  color: #ffffff;
+  font-size: 1.1rem;
+  outline: none;
+  transition: border-color 0.2s;
+  -moz-appearance: textfield;
+}
+
+.guess-input::-webkit-outer-spin-button,
+.guess-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.guess-input:focus {
+  border-color: #81c784;
+}
+
+.guess-input::placeholder {
+  color: #666688;
+}
+
+.guess-input:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* Buttons */
+.btn {
+  padding: 0.75rem 1.25rem;
+  border: none;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.btn-primary {
+  background: #4caf50;
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: #43a047;
+}
+
+.btn-primary:disabled {
+  background: #2e7d32;
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.1);
+  color: #c0c0e0;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.16);
+}
+
+.btn-secondary:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* --- Feedback --- */
+.feedback {
+  padding: 0.75rem 1rem;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+  display: none;
+}
+
+.feedback.info {
+  display: block;
+  background: rgba(33, 150, 243, 0.15);
+  color: #90caf9;
+  border: 1px solid rgba(33, 150, 243, 0.25);
+}
+
+.feedback.error {
+  display: block;
+  background: rgba(244, 67, 54, 0.15);
+  color: #ef9a9a;
+  border: 1px solid rgba(244, 67, 54, 0.25);
+}
+
+.feedback.success {
+  display: block;
+  background: rgba(76, 175, 80, 0.15);
+  color: #81c784;
+  border: 1px solid rgba(76, 175, 80, 0.25);
+  font-size: 1.1rem;
+}
+
+.feedback.hint {
+  display: block;
+  background: rgba(255, 193, 7, 0.12);
+  color: #ffd54f;
+  border: 1px solid rgba(255, 193, 7, 0.2);
+}
+
+/* --- History --- */
+.history-section {
+  margin-top: 1.5rem;
+}
+
+.history-title {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #8888aa;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 0.75rem;
+}
+
+.history-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.history-table thead th {
+  font-size: 0.75rem;
+  color: #666688;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 0.5rem 0.75rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  text-align: left;
+}
+
+.history-table tbody td {
+  padding: 0.6rem 0.75rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  font-size: 0.9rem;
+}
+
+.history-high {
+  color: #ef9a9a;
+}
+
+.history-low {
+  color: #90caf9;
+}
+
+.history-win {
+  color: #81c784;
+  font-weight: 700;
+}
+
+.history-empty {
+  color: #555577;
+  font-size: 0.85rem;
+  text-align: center;
+  padding: 1.5rem 0;
+}
+
+/* --- Modal --- */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(4px);
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+.modal-card {
+  background: #1a1a2e;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 20px;
+  padding: 2.5rem 2rem;
+  max-width: 400px;
+  width: 90%;
+  text-align: center;
+}
+
+.modal-card h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  color: #fff;
+}
+
+.modal-body {
+  margin-bottom: 1.5rem;
+  line-height: 1.8;
+  color: #b0b0d0;
+}
+
+.modal-body .score {
+  font-size: 1.8rem;
+  color: #ffd54f;
+  margin-top: 0.5rem;
+}
+
+/* --- Responsive (game page) --- */
+@media (max-width: 600px) {
+  .game-container {
+    margin: 1.5rem auto;
+  }
+
+  .input-area {
+    flex-wrap: wrap;
+  }
+
+  .guess-input {
+    min-width: 100%;
+  }
+
+  .btn {
+    flex: 1;
+    text-align: center;
+  }
+
+  .modal-card {
+    padding: 1.5rem;
+  }
+}
